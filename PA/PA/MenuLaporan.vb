@@ -87,17 +87,19 @@ Public Class MenuLaporan
             RD.Read()
 
             If RD.HasRows Then
-
+                RD.Close()
                 DA = New MySqlDataAdapter("Select * From tbminisoccer where id like  '%" & txtCari.Text & "%' or nama like'%" & txtCari.Text & "%'", CONN)
                 DS = New DataSet
-                RD.Close()
+
                 DA.Fill(DS, "Dapat")
                 DataGridView1.DataSource = DS.Tables("Dapat")
                 DataGridView1.ReadOnly = True
+                DataGridView1.Refresh()
             Else
                 RD.Close()
                 MsgBox("Data tidak ditemukan")
             End If
+            txtCari.Clear()
         End If
     End Sub
     Private Sub txtCari1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCari.KeyPress
@@ -107,10 +109,10 @@ Public Class MenuLaporan
             RD.Read()
 
             If RD.HasRows Then
-
+                RD.Close()
                 DA = New MySqlDataAdapter("Select * From tbfutsal where id like  '%" & txtCari.Text & "%' or nama like'%" & txtCari.Text & "%'", CONN)
                 DS = New DataSet
-                RD.Close()
+               
                 DA.Fill(DS, "Dapat")
                 DataGridView1.DataSource = DS.Tables("Dapat")
                 DataGridView1.ReadOnly = True
@@ -118,6 +120,7 @@ Public Class MenuLaporan
                 RD.Close()
                 MsgBox("Data tidak ditemukan")
             End If
+            txtCari1.Clear()
         End If
     End Sub
 
