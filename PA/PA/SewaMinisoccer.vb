@@ -283,6 +283,7 @@ Public Class SewaMinisoccer
                 Call bersih()
             End If
         End If
+        Call no()
     End Sub
     Private Sub txtCari_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCari.KeyPress
         If e.KeyChar = Chr(13) Then
